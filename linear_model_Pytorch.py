@@ -106,3 +106,9 @@ for i in tqdm(range(MAX_EPOCHS)):
             batch_acc = accuracy(proba, y_batch.to(torch.int32).to(DEVICE))
             epoch_accuracy.append(batch_acc.detach().cpu().numpy().item())
         accuracy_val.append(np.mean(epoch_accuracy))  # Store the mean accuracy of the epoch
+
+
+with torch.no_grad():
+    torch.cuda.empty_cache()
+
+
